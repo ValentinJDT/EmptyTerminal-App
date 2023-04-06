@@ -11,6 +11,14 @@ class App {
     private val eventRegister: EventRegister = EventRegister.getInstance()
 
     companion object {
+        private const val DEFAULT_CMD_ERROR_MESSAGE: String = "Error: Command \"%command%\" not found"
+
+        var commandUnknownMessage = DEFAULT_CMD_ERROR_MESSAGE
+
+        fun resetCommandMessage() {
+            commandUnknownMessage = DEFAULT_CMD_ERROR_MESSAGE
+        }
+
         lateinit var workingDir: String;
     }
 
@@ -37,7 +45,7 @@ class App {
             val commandElements = splitArgs(stringInput)
 
             if(!PluginLoader.executeCommand(commandElements[0], commandElements.drop(1)))
-                println(PluginLoader.commandUnknownMessage.replace("%command%", commandElements[0]))
+                println(commandUnknownMessage.replace("%command%", commandElements[0]))
 
         } while(stringInput != "exit")
     }

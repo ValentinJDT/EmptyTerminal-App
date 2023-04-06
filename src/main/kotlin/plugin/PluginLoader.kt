@@ -29,13 +29,6 @@ class PluginLoader<T : IPlugin>(val directory: String) {
 
     companion object {
 
-        private const val DEFAULT_CMD_ERROR_MESSAGE: String = "Error: Command \"%command%\" not found"
-
-        var commandUnknownMessage = DEFAULT_CMD_ERROR_MESSAGE
-
-        fun resetCommandMessage() {
-            commandUnknownMessage = DEFAULT_CMD_ERROR_MESSAGE
-        }
 
         val loaders = mutableMapOf<String, PluginLoader<out IPlugin>>()
 
