@@ -1,9 +1,7 @@
 commands/
 plugins/
 
-.idea/
-
-.gradle/
+.gradle
 **/build/
 !src/**/build/
 
