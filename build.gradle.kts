@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(files("C:\\Users\\v.jeandot\\IdeaProjects\\EventAPI\\build\\libs\\EventAPI-1.0-SNAPSHOT.jar", "C:\\Users\\v.jeandot\\IdeaProjects\\PluginAPI\\API\\build\\libs\\API-1.0-SNAPSHOT.jar"))
+    implementation(files("dependencies/EventAPI-1.0-SNAPSHOT.jar", "dependencies/API-1.0-SNAPSHOT.jar"))
 }
 
 tasks.test {
@@ -35,6 +35,7 @@ tasks.withType<Jar> {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     from(sourceSets.main.get().output)
+
 
     dependsOn(configurations.runtimeClasspath)
     from({
