@@ -13,12 +13,22 @@ class App {
     companion object {
         private const val DEFAULT_CMD_ERROR_MESSAGE: String = "Error: Command \"%command%\" not found"
 
+        /**
+         * Change this value to set a new command not found message.
+         * The command name is replaced by %command%.
+         */
         var commandUnknownMessage = DEFAULT_CMD_ERROR_MESSAGE
 
+        /**
+         * Set the default error message.
+         */
         fun resetCommandMessage() {
             commandUnknownMessage = DEFAULT_CMD_ERROR_MESSAGE
         }
 
+        /**
+         * Current working dir of the terminal. Change this value to set a new working directory path.
+         */
         lateinit var workingDir: String;
     }
 
@@ -54,6 +64,12 @@ class App {
         eventRegister.registerListener(PluginListener())
     }
 
+    /**
+     * Convert line into an array.
+     *
+     * @param line Input line
+     * @return Return list of string
+     */
     private fun splitArgs(line: String): List<String> {
         val words = mutableListOf<String>()
         var wordBegin = 0
@@ -63,17 +79,20 @@ class App {
             if(char == '\"') {
                 isBetweenQuotes = !isBetweenQuotes
             } else if(!isBetweenQuotes && char == ' ') {
-                words.add(replaceQuotes(line.substring(wordBegin, index)))
+                words.add(removeArroundQuotes(line.substring(wordBegin, index)))
                 wordBegin = index + 1
             }
         }
 
-        words.add(replaceQuotes(line.substring(wordBegin)))
+        words.add(removeArroundQuotes(line.substring(wordBegin)))
 
         return words
     }
 
-    private fun replaceQuotes(line: String): String {
+    /**
+     * Remove quotes arround [line].
+     */
+    private fun removeArroundQuotes(line: String): String {
         return if(line.startsWith("\"") && line.endsWith("\"")) {
             line.substring(1, line.length - 1)
         } else {
