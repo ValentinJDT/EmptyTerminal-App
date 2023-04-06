@@ -11,7 +11,6 @@ class PluginListener: Listener() {
 
     @EventHandler
     fun onPluginLoad(event: PluginLoadEvent) {
-
         if(!event.cancel) {
             println(event.plugin.name + " loaded (catch)")
         }
