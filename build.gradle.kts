@@ -42,7 +42,3 @@ tasks.withType<Jar> {
         configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
     })
 }
-
-tasks.named<JavaExec>("run") {
-    standardInput = System.`in`
-}
