@@ -6,10 +6,10 @@ You can make your own feature in kotlin language :
 
 By default, in app, you can :
 - Load / unload plugins
-- Use custom event system (looks like Spigot event sytem)
+- Use custom event system (looks like Spigot event system)
 - Create custom addons directory (maybe for sorting)
-- Get / change command error message
-- Get / change global working directory
+- Get / change command error message (<b>App.commandUnknownMessage</b>)
+- Get / change global working directory (<b>App.workingDir</b>)
 
 
 ## Run the terminal
@@ -39,4 +39,4 @@ or<br>
 This directory path can be different if you have another version.
 
 ### Please note: this terminal was only designed for Windows
-You can change the default working directory system to match with your OS.
+You can change the default working directory function to match with your OS.
