@@ -211,8 +211,10 @@ class PluginLoader<T : IPlugin>(val directory: String) {
         val plugin = clazz.getDeclaredConstructor().newInstance() as T
         plugin.url = jarUrl
 
-        if(plugins.keys.any { it.name == plugin.name }) {
-            eventRegister.runEvent(PluginAlreadyLoadedEvent(plugin))
+        val matchedPlugin = plugins.keys.find { it.name == plugin.name }
+
+        if(matchedPlugin != null) {
+            eventRegister.runEvent(PluginAlreadyLoadedEvent(matchedPlugin))
             classLoader.close()
             return Pair(null, null)
         }
