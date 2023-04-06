@@ -24,7 +24,7 @@ This value can be changed when terminal is running.
 
 ```JSON
 {
-  "commandline": "java -jar EmptyTerminal-<verion>.jar [working-directory]",
+  "commandline": "java -jar EmptyTerminal-<version>.jar [working-directory]",
   "elevate": true, // optional
   "guid": "{7b33327f-3e51-423a-8478-91203864abf8}",
   "hidden": false,
