@@ -5,11 +5,11 @@ You can make your own feature in kotlin language :
 2. Commands
 
 By default, in app, you can :
-- Load / unload plugins
-- Use custom event system (looks like Spigot event system)
-- Create custom addons directory (maybe for sorting)
-- Get / change command error message (<b>App.commandUnknownMessage</b>)
-- Get / change global working directory (<b>App.workingDir</b>)
+- Load / unload addons
+- Use custom event system (looks like Spigot event system, `EventRegister.getInstance()`)
+- Create custom addons directory (`PluginLoader.createInstance<T>()` or `PluginLoader.getInstance<T>()`)
+- Get / change command error message (`App.commandUnknownMessage`)
+- Get / change global working directory (`App.workingDir`)
 
 
 ## Run the terminal
@@ -24,7 +24,7 @@ This value can be changed when terminal is running.
 
 ```JSON
 {
-  "commandline": "java -jar EmptyTerminal-<verion>.jar [working-directory]",
+  "commandline": "java -jar EmptyTerminal-<version>.jar [working-directory]",
   "elevate": true, // optional
   "guid": "{7b33327f-3e51-423a-8478-91203864abf8}",
   "hidden": false,
