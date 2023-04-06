@@ -1,12 +1,12 @@
-### Gradle ###
-.gradle
+commands/
+plugins/
+
+.idea/
+
+.gradle/
 **/build/
 !src/**/build/
 
-.idea
-
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
 
-# Avoid ignore Gradle wrappper properties
 !gradle-wrapper.properties
