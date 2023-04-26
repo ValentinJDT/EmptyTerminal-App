@@ -1,6 +1,7 @@
 package fr.valentin.emptyterminal
 
 import fr.valentin.api.event.EventRegister
+import fr.valentin.api.event.EventRegisterLegacy
 import fr.valentin.api.plugin.Command
 import fr.valentin.api.plugin.Plugin
 import fr.valentin.emptyterminal.listener.PluginListener
@@ -8,7 +9,6 @@ import fr.valentin.emptyterminal.plugin.PluginLoader
 
 class App {
 
-    private val eventRegister: EventRegister = EventRegister.getInstance()
 
     companion object {
         private const val DEFAULT_CMD_ERROR_MESSAGE: String = "Error: Command \"%command%\" not found"
@@ -61,7 +61,7 @@ class App {
     }
 
     private fun registerListener() {
-        eventRegister.registerListener(PluginListener())
+        EventRegister.registerListener(PluginListener())
     }
 
     /**

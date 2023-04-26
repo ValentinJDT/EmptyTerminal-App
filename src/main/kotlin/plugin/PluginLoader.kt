@@ -2,6 +2,7 @@ package fr.valentin.emptyterminal.plugin
 
 import fr.valentin.emptyterminal.event.PluginCanNotLoadEvent
 import fr.valentin.api.event.EventRegister
+import fr.valentin.api.event.EventRegisterLegacy
 import fr.valentin.api.plugin.Command
 import fr.valentin.api.plugin.IPlugin
 import fr.valentin.emptyterminal.event.PluginAlreadyLoadedEvent
@@ -15,7 +16,6 @@ import java.util.*
 
 class PluginLoader<T : IPlugin>(val directory: String) {
 
-    private val eventRegister = EventRegister.getInstance()
     private val plugins = mutableMapOf<T, URLClassLoader>()
 
     init {
@@ -137,7 +137,7 @@ class PluginLoader<T : IPlugin>(val directory: String) {
 
     fun unloadPlugin(name: String) {
         plugins.entries.find { it.key.name == name }?.apply {
-            if(eventRegister.runEvent(PluginUnLoadEvent(this.key))) {
+            if(EventRegister.runEvent(PluginUnLoadEvent(this.key))) {
                 disablePlugin(this.key)
                 this.value.close()
                 plugins.remove(this.key)
@@ -156,7 +156,7 @@ class PluginLoader<T : IPlugin>(val directory: String) {
         var (plugin, classLoader) = loadMainClassPlugin(file.toURI().toURL())
 
         plugin?.run {
-            if(!eventRegister.runEvent(PluginLoadEvent(this))) {
+            if(!EventRegister.runEvent(PluginLoadEvent(this))) {
                 classLoader?.close()
                 plugins.remove(this)
                 plugin = null
@@ -176,7 +176,7 @@ class PluginLoader<T : IPlugin>(val directory: String) {
         while(iter.hasNext()) {
             val entry = iter.next()
 
-            if(eventRegister.runEvent(PluginUnLoadEvent(entry.key))) {
+            if(EventRegister.runEvent(PluginUnLoadEvent(entry.key))) {
                 disablePlugin(entry.key)
                 entry.value.close()
                 iter.remove()
@@ -193,7 +193,7 @@ class PluginLoader<T : IPlugin>(val directory: String) {
 
         if(!properties.containsKey("main")) {
             classLoader.close()
-            eventRegister.runEvent(PluginCanNotLoadEvent(jarUrl.toString()))
+            EventRegister.runEvent(PluginCanNotLoadEvent(jarUrl.toString()))
             return Pair(null, null)
         }
 
@@ -204,7 +204,7 @@ class PluginLoader<T : IPlugin>(val directory: String) {
             classLoader.loadClass(defaultClass) as Class<out T>
         } catch(exception: ClassNotFoundException) {
             exception.printStackTrace()
-            eventRegister.runEvent(PluginCanNotLoadEvent(jarUrl.toString()))
+            EventRegister.runEvent(PluginCanNotLoadEvent(jarUrl.toString()))
             null
         } ?: return Pair(null, null)
 
@@ -214,7 +214,7 @@ class PluginLoader<T : IPlugin>(val directory: String) {
         val matchedPlugin = plugins.keys.find { it.name == plugin.name }
 
         if(matchedPlugin != null) {
-            eventRegister.runEvent(PluginAlreadyLoadedEvent(matchedPlugin))
+            EventRegister.runEvent(PluginAlreadyLoadedEvent(matchedPlugin))
             classLoader.close()
             return Pair(null, null)
         }
