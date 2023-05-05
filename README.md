@@ -11,6 +11,7 @@ By default, in app, you can :
 - Get / change command error message (`App.commandUnknownMessage`)
 - Get / change global working directory (`App.workingDir`)
 
+`EventRegister` and `PluginLoader` have been migrated into the [ValLib library](https://github.com/ValentinJDT/ValLib).
 
 ## Run the terminal
 
