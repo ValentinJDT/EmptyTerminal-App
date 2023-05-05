@@ -1,11 +1,10 @@
 package fr.valentin.emptyterminal
 
-import fr.valentin.api.event.EventRegister
-import fr.valentin.api.event.EventRegisterLegacy
-import fr.valentin.api.plugin.Command
-import fr.valentin.api.plugin.Plugin
 import fr.valentin.emptyterminal.listener.PluginListener
-import fr.valentin.emptyterminal.plugin.PluginLoader
+import fr.valentin.lib.vallib.event.EventRegister
+import fr.valentin.lib.vallib.plugin.Command
+import fr.valentin.lib.vallib.plugin.Plugin
+import fr.valentin.lib.vallib.plugin.PluginLoader
 
 class App {
 

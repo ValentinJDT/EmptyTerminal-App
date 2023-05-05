@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "1.8.20"
     application
 }
 
@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(files("dependencies/EventAPI-1.0-SNAPSHOT.jar", "dependencies/API-1.0-SNAPSHOT.jar"))
+    implementation(files("dependencies/ValLib-0.1.0.jar"))
 }
 
 tasks.test {
@@ -20,7 +20,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(8)
+    jvmToolchain(17)
 }
 
 application {
