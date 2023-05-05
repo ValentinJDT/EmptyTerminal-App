@@ -5,6 +5,8 @@ import fr.valentin.lib.vallib.event.EventRegister
 import fr.valentin.lib.vallib.plugin.Command
 import fr.valentin.lib.vallib.plugin.Plugin
 import fr.valentin.lib.vallib.plugin.PluginLoader
+import fr.valentin.lib.vallib.plugin.event.PluginCanNotLoadEvent
+import fr.valentin.lib.vallib.plugin.event.PluginLoadEvent
 
 class App {
 
