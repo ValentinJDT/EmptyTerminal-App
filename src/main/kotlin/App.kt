@@ -5,8 +5,6 @@ import fr.valentin.lib.vallib.event.EventRegister
 import fr.valentin.lib.vallib.plugin.Command
 import fr.valentin.lib.vallib.plugin.Plugin
 import fr.valentin.lib.vallib.plugin.PluginLoader
-import fr.valentin.lib.vallib.plugin.event.PluginCanNotLoadEvent
-import fr.valentin.lib.vallib.plugin.event.PluginLoadEvent
 
 class App {
 
@@ -80,20 +78,20 @@ class App {
             if(char == '\"') {
                 isBetweenQuotes = !isBetweenQuotes
             } else if(!isBetweenQuotes && char == ' ') {
-                words.add(removeArroundQuotes(line.substring(wordBegin, index)))
+                words.add(removeAroundQuotes(line.substring(wordBegin, index)))
                 wordBegin = index + 1
             }
         }
 
-        words.add(removeArroundQuotes(line.substring(wordBegin)))
+        words.add(removeAroundQuotes(line.substring(wordBegin)))
 
         return words
     }
 
     /**
-     * Remove quotes arround [line].
+     * Remove quotes around [line].
      */
-    private fun removeArroundQuotes(line: String): String {
+    private fun removeAroundQuotes(line: String): String {
         return if(line.startsWith("\"") && line.endsWith("\"")) {
             line.substring(1, line.length - 1)
         } else {
