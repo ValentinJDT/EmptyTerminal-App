@@ -8,11 +8,14 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://jitpack.io")
+    }
 }
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(files("dependencies/ValLib-0.1.2.jar"))
+    implementation("com.github.ValentinJDT:ValLib:v0.1.3")
 }
 
 tasks.test {
