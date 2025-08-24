@@ -14,7 +14,6 @@ val vallibVersion = property("vallib-version") as String
 val mainGroup = group
 
 repositories {
-    mavenLocal()
     mavenCentral()
     maven {
         url = uri("https://jitpack.io")
@@ -23,8 +22,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("fr.valentinjdt.lib:plugin:$vallibVersion")
-    implementation("fr.valentinjdt.lib:event:$vallibVersion")
+    implementation("com.github.ValentinJDT:ValLib:${vallibVersion}")
     implementation("org.jline:jline:3.30.5")
 }
 
@@ -70,7 +68,7 @@ subprojects {
     }
 
     dependencies {
-        implementation("fr.valentinjdt.lib:plugin:${vallibVersion}")
+        implementation("com.github.ValentinJDT:ValLib:${vallibVersion}")
     }
 
     kotlin {
