@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commands/async/EmptyTerminal.commands.async.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commands/async/EmptyTerminal.commands.async.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commands/change-dir/EmptyTerminal.commands.change-dir.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commands/change-dir/EmptyTerminal.commands.change-dir.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commands/describe/EmptyTerminal.commands.describe.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commands/describe/EmptyTerminal.commands.describe.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commands/editing/EmptyTerminal.commands.editing.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commands/editing/EmptyTerminal.commands.editing.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commands/example/EmptyTerminal.commands.example.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commands/example/EmptyTerminal.commands.example.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commands/global-help/EmptyTerminal.commands.global-help.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commands/global-help/EmptyTerminal.commands.global-help.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commands/patcher/EmptyTerminal.commands.patcher.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commands/patcher/EmptyTerminal.commands.patcher.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/commands/template/EmptyTerminal.commands.template.main.iml" filepath="$PROJECT_DIR$/.idea/modules/commands/template/EmptyTerminal.commands.template.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/plugins/updater/EmptyTerminal.plugins.updater.main.iml" filepath="$PROJECT_DIR$/.idea/modules/plugins/updater/EmptyTerminal.plugins.updater.main.iml" />
+    </modules>
+  </component>
+</project>

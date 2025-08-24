@@ -1,4 +1,4 @@
-package fr.valentin.emptyterminal
+package fr.valentinjdt.emptyterminal
 
 import java.io.File
 import java.nio.file.InvalidPathException

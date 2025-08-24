@@ -1,11 +1,11 @@
-package fr.valentin.emptyterminal.listener
+package fr.valentinjdt.emptyterminal.listener
 
-import fr.valentin.lib.vallib.event.EventHandler
-import fr.valentin.lib.vallib.event.Listener
-import fr.valentin.lib.vallib.plugin.event.PluginAlreadyLoadedEvent
-import fr.valentin.lib.vallib.plugin.event.PluginCanNotLoadEvent
-import fr.valentin.lib.vallib.plugin.event.PluginLoadEvent
-import fr.valentin.lib.vallib.plugin.event.PluginUnLoadEvent
+import fr.valentinjdt.lib.event.EventHandler
+import fr.valentinjdt.lib.event.Listener
+import fr.valentinjdt.lib.plugin.event.PluginAlreadyLoadedEvent
+import fr.valentinjdt.lib.plugin.event.PluginCanNotLoadEvent
+import fr.valentinjdt.lib.plugin.event.PluginLoadEvent
+import fr.valentinjdt.lib.plugin.event.PluginUnLoadEvent
 
 class PluginListener: Listener() {
 

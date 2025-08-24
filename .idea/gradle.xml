@@ -9,6 +9,18 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/commands" />
+            <option value="$PROJECT_DIR$/commands/async" />
+            <option value="$PROJECT_DIR$/commands/change-dir" />
+            <option value="$PROJECT_DIR$/commands/describe" />
+            <option value="$PROJECT_DIR$/commands/editing" />
+            <option value="$PROJECT_DIR$/commands/example" />
+            <option value="$PROJECT_DIR$/commands/global-help" />
+            <option value="$PROJECT_DIR$/commands/patcher" />
+            <option value="$PROJECT_DIR$/commands/template" />
+            <option value="$PROJECT_DIR$/commands/updater" />
+            <option value="$PROJECT_DIR$/plugins" />
+            <option value="$PROJECT_DIR$/plugins/updater" />
           </set>
         </option>
       </GradleProjectSettings>
