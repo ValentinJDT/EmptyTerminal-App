@@ -15,7 +15,7 @@ object Updater {
     fun installLatest() = runBlocking {
         println("Installing latest version...")
         getLatestRelease()?.let {
-            intallVersion(it)
+            intallVersion(it.substring(1))
         }
         println("Done! Restart to use the new version.")
     }
