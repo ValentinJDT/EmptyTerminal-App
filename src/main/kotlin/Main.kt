@@ -3,6 +3,7 @@ package fr.valentinjdt.emptyterminal
 import java.io.File
 import java.nio.file.InvalidPathException
 import java.nio.file.Paths
+import kotlin.system.exitProcess
 
 
 fun main(args: Array<String>) {
@@ -18,6 +19,7 @@ fun main(args: Array<String>) {
     println("Current working directory: ${App.workingDir}")
 
     App()
+    exitProcess(0)
 }
 
 fun isValidPath(path: String): Boolean {

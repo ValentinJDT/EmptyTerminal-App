@@ -102,6 +102,7 @@ class App {
             println()
 
         } while(stringInput != "exit") // Exit the loop when "exit" is entered
+        reader.terminal.close()
     }
 
     /**
