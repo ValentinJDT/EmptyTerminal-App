@@ -1,5 +1,6 @@
 package fr.valentinjdt.plugin.changedir
 
+import fr.valentinjdt.components.changedir.VERSION
 import fr.valentinjdt.emptyterminal.App
 import fr.valentinjdt.lib.plugin.Command
 import fr.valentinjdt.lib.plugin.SubCommandCompletion

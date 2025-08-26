@@ -1,5 +1,6 @@
 package fr.valentinjdt.plugin.patcher
 
+import fr.valentinjdt.components.patcher.VERSION
 import fr.valentinjdt.lib.plugin.Command
 import fr.valentinjdt.lib.plugin.SubCommandCompletion
 import fr.valentinjdt.plugin.patcher.patch.Patchs

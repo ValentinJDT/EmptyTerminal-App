@@ -1,5 +1,6 @@
 package fr.valentinjdt.plugin.template
 
+import fr.valentinjdt.components.template.VERSION
 import fr.valentinjdt.lib.plugin.Command
 import fr.valentinjdt.lib.plugin.SubCommandCompletion
 import java.io.File

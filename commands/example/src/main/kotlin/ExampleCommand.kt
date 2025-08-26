@@ -1,5 +1,6 @@
 package fr.valentinjdt.plugin.example
 
+import fr.valentinjdt.components.example.VERSION
 import fr.valentinjdt.lib.plugin.Command
 import fr.valentinjdt.lib.plugin.SubCommandCompletion
 

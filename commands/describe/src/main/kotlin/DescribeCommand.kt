@@ -1,5 +1,6 @@
 package fr.valentinjdt.plugin.describe
 
+import fr.valentinjdt.components.describe.VERSION
 import fr.valentinjdt.lib.plugin.Command
 import fr.valentinjdt.lib.plugin.Plugin
 import fr.valentinjdt.lib.plugin.PluginLoader

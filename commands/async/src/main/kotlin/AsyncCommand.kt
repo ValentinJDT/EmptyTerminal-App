@@ -1,5 +1,6 @@
 package fr.valentinjdt.plugin.async
 
+import fr.valentinjdt.components.async.VERSION
 import fr.valentinjdt.lib.plugin.Command
 import fr.valentinjdt.lib.plugin.PluginLoader
 import fr.valentinjdt.lib.plugin.SubCommandCompletion
