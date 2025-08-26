@@ -19,15 +19,15 @@ interface GitHubApiService {
     @GET("repos/ValentinJDT/EmptyTerminal-App/releases")
     suspend fun getReleases(): Response<List<Release>>
 
-    @GET("ValentinJDT/EmptyTerminal-App/releases/download/{version}/EmptyTerminal-{version}.jar")
+    @GET("ValentinJDT/EmptyTerminal-App/releases/download/v{version}/EmptyTerminal-{version}.jar")
     suspend fun getJar(@Path("version") version: String): Response<ResponseBody>
 }
 
 suspend fun getJar(version: String): Response<ResponseBody>? {
     val client = OkHttpClient().newBuilder()
-        .followRedirects(false)
+        .followRedirects(true)
+        .followSslRedirects(true)
         .build()
-
 
     val retrofit = Retrofit.Builder()
         .baseUrl("https://github.com/")
@@ -37,19 +37,13 @@ suspend fun getJar(version: String): Response<ResponseBody>? {
     val service = retrofit.create(GitHubApiService::class.java)
     val response = service.getJar(version)
 
-    println(response.raw().request.url)
-
-    if(response.isSuccessful) {
-        println("Downloaded version $version")
+    val file = File("EmptyTerminal-${version}.jar")
+    try {
+        file.createNewFile()
+        Files.write(Path(file.path), response.body()!!.bytes())
+    } catch(e: IOException) {
+        e.printStackTrace()
     }
-
-//    val file = File("EmptyTerminal-${version}.jar")
-//    try {
-//        file.createNewFile()
-//        Files.write(Path(file.path), response.body()!!.bytes())
-//    } catch(e: IOException) {
-//        e.printStackTrace()
-//    }
 
     if (!response.isSuccessful) {
         println("Erreur: ${response.code()}")
