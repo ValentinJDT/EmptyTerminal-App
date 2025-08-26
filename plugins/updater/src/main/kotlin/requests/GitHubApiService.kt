@@ -1,6 +1,7 @@
 package requests
 
 import fr.valentinjdt.plugin.requests.Release
+import okhttp3.OkHttpClient
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.Retrofit
@@ -18,26 +19,37 @@ interface GitHubApiService {
     @GET("repos/ValentinJDT/EmptyTerminal-App/releases")
     suspend fun getReleases(): Response<List<Release>>
 
-    @GET("ValentinJDT/EmptyTerminal-App/releases/download/v{version}/EmptyTerminal-{version}.jar")
+    @GET("ValentinJDT/EmptyTerminal-App/releases/download/{version}/EmptyTerminal-{version}.jar")
     suspend fun getJar(@Path("version") version: String): Response<ResponseBody>
 }
 
 suspend fun getJar(version: String): Response<ResponseBody>? {
+    val client = OkHttpClient().newBuilder()
+        .followRedirects(false)
+        .build()
+
+
     val retrofit = Retrofit.Builder()
         .baseUrl("https://github.com/")
-        .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
         .build()
 
     val service = retrofit.create(GitHubApiService::class.java)
     val response = service.getJar(version)
 
-    val file = File("EmptyTerminal-${version}.jar")
-    try {
-        file.createNewFile()
-        Files.write(Path(file.path), response.body()!!.bytes())
-    } catch(e: IOException) {
-        e.printStackTrace()
+    println(response.raw().request.url)
+
+    if(response.isSuccessful) {
+        println("Downloaded version $version")
     }
+
+//    val file = File("EmptyTerminal-${version}.jar")
+//    try {
+//        file.createNewFile()
+//        Files.write(Path(file.path), response.body()!!.bytes())
+//    } catch(e: IOException) {
+//        e.printStackTrace()
+//    }
 
     if (!response.isSuccessful) {
         println("Erreur: ${response.code()}")
