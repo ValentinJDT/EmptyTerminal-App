@@ -1,5 +1,6 @@
 package fr.valentinjdt.plugin.globalhelp
 
+import fr.valentinjdt.components.globalhelp.VERSION
 import fr.valentinjdt.emptyterminal.App
 import fr.valentinjdt.lib.plugin.Command
 import fr.valentinjdt.lib.plugin.PluginLoader

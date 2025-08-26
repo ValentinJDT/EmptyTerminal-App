@@ -1,5 +1,6 @@
 package fr.valentinjdt.plugin.editing
 
+import fr.valentinjdt.components.editing.VERSION
 import fr.valentinjdt.emptyterminal.App
 import fr.valentinjdt.lib.plugin.Command
 import fr.valentinjdt.lib.plugin.SubCommandCompletion
