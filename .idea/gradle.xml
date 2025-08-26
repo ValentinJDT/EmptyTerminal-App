@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/commands/global-help" />
             <option value="$PROJECT_DIR$/commands/patcher" />
             <option value="$PROJECT_DIR$/commands/template" />
+            <option value="$PROJECT_DIR$/commands/updater" />
             <option value="$PROJECT_DIR$/plugins" />
             <option value="$PROJECT_DIR$/plugins/updater" />
           </set>
