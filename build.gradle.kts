@@ -54,6 +54,19 @@ tasks.jar {
     })
 }
 
+tasks.register<GenerateClassTask>("generateClass")
+
+tasks.named("compileKotlin") {
+    dependsOn("generateClass")
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir("build/generated/sources/kotlin/main")
+        }
+    }
+}
 
 subprojects {
     apply(plugin = "kotlin")
@@ -102,14 +115,14 @@ subprojects {
             "kotlin-stdlib-2.1.10.jar", "plugin-${vallibVersion}.jar",
 
             // Updater plugin
-            "kotlinx-coroutines-core-jvm-1.10.2.jar", "gson", "retrofit"
+            "kotlinx-coroutines-core-jvm-1.10.2.jar", "gson", "retrofit", "okhttp", "okio-jvm",
         )
 
 
         from({
             configurations.runtimeClasspath.get().filter { jar ->
-                println(jar.name)
-                list.contains(jar.name) }.map { zipTree(it) }
+                list.any { jar.name.contains(it) }
+            }.map { zipTree(it) }
         })
     }
 
@@ -136,8 +149,8 @@ open class GenerateClassTask : DefaultTask() {
         val outputFile = File(outputDir, "GeneratedProperties.kt")
 
         outputDir.mkdirs()
-        outputFile.writeText("package fr.valentinjdt.plugin.${project.name.replace("-", "")}\n\n")
-        outputFile.addConstant("version", project.version.toString(), "Version of the plugin.")
+        outputFile.writeText("package fr.valentinjdt.components.${project.name.lowercase().replace("-", "")}\n\n")
+        outputFile.addConstant("version", project.version.toString(), "Version of the component.")
     }
 
     inline fun <reified T : Comparable<*>> File.addConstant(name: String, value: T, description: String? = null) {
